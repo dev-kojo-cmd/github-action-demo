@@ -66,3 +66,23 @@ func TestIsEven(t *testing.T) {
 		})
 	}
 }
+
+func TestDisplayName(t *testing.T) {
+	tests := []struct {
+		name string
+		input string
+		want string
+	}{
+		{name: "regular name", input: "Alice", want: "Hello, Alices!"},
+		{name: "empty name", input: "", want: "Hello, !"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := displayName(tt.input)
+			if got != tt.want {
+				t.Fatalf("displayName(%q) = %q, want %q", tt.input, got, tt.want)
+			}
+		})
+	}
+}
