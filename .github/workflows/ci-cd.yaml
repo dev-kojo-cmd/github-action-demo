@@ -4,7 +4,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show GitHub context
+        run: echo "${{ toJson(github) }}"
   tests:
     runs-on: ubuntu-latest
     steps:
@@ -15,5 +21,21 @@ jobs:
           go-version: '1.25.4'
       - name: Run tests
         run: go test -v ./...
+
+
+  
+  build:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.25.4'
+      - name: Build the application
+        run: go build -v ./...
+  
+ 
 
  

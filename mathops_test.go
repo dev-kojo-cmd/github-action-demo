@@ -73,7 +73,7 @@ func TestDisplayName(t *testing.T) {
 		input string
 		want string
 	}{
-		{name: "regular name", input: "Alice", want: "Hello, Alices!"},
+		{name: "regular name", input: "Alice", want: "Hello, Alice!"},
 		{name: "empty name", input: "", want: "Hello, !"},
 	}
 

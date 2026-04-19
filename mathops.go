@@ -1,5 +1,9 @@
 package main
 
+func main() {
+	// Example usage of the functions
+	println(Add(5, 3))          // Output: 8	
+}
 // Add returns the sum of two integers.
 func Add(a, b int) int {
 	return a + b
