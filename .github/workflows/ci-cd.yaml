@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show GitHub context
-        run: echo "${{ toJson(github) }}"
+        run: echo "${{ toJson(github.event) }}"
   tests:
     runs-on: ubuntu-latest
     steps:
